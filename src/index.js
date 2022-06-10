@@ -8,7 +8,7 @@ app.get( "/", ( req, res ) => {
 } );
 
 app.post( "/", ( req, res ) => {
-    console.log('LCS HELLO WORD', req, req.body)
+    console.log('LCS HELLO WORD', req.text, req.body)
     res.send( "Hello world!" );
 });
 
