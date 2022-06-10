@@ -33,7 +33,7 @@ app.post( "/", ( req, res ) => {
         `perdu ses accès`
     ].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
     const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    if (triggers.includes(text)) {
+    if (triggers.some(trigger => text.includes(trigger))) {
         res.json({
             text: `Hello @${req.body.user_name}, tu sembles avoir un problème fréquent dont la réponse se trouve sans doute dans la doc : 
             https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/problemes-frequents 
