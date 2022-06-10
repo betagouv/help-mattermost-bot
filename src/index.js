@@ -4,6 +4,7 @@ const port = process.env.PORT; // default port to listen
 
 // define a route handler for the default home page
 app.get( "/", ( req, res ) => {
+console.log(req.body)
     res.send( "Hello world!" );
 } );
 
