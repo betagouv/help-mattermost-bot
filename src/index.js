@@ -7,6 +7,7 @@ app.get( "/", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 app.post( "/", ( req, res ) => {
+    console.log(req.body)
     if (req.body.token !== process.env.TOKEN) { 
         return
     }
