@@ -7,8 +7,9 @@ app.get( "/", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 app.post( "/", ( req, res ) => {
-    console.log('LCS HELLO WORD', req.body.text, req.body)
-    console.log(req.body.channel_name)
+    if (req.body.token !== process.env.TOKEN) { 
+        return
+    }
     const triggers = [
         `j'ai perdu mes accès à ma boite mail`,
         `n'arrive plus à accéder à son mail`,
