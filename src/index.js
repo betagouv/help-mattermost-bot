@@ -6,9 +6,9 @@ app.use(express.json())
 app.get( "/", ( req, res ) => {
     res.send( "Hello world!" );
 } );
-
 app.post( "/", ( req, res ) => {
-    console.log('LCS HELLO WORD', req.text, req.body)
+    console.log('LCS HELLO WORD', req.body.text, req.body)
+    console.log(req.body.channel_name)
     res.send( "Hello world!" );
 });
 
