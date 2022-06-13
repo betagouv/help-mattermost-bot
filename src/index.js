@@ -7,7 +7,7 @@ app.get( "/", ( req, res ) => {
     res.send( "Hello world!" );
 } );
 app.post( "/", ( req, res ) => {
-    if (req.body.token !== process.env.TOKEN) { 
+    if (!process.env.TOKEN.split(',').includes(req.body.token)) { 
         return
     }
     const triggers = [
