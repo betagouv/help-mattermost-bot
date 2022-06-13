@@ -60,7 +60,7 @@ app.post( "/", ( req, res ) => {
         return
     }
     let type
-    if (req.body.channel_name = 'incubateur-embauche-autre') {
+    if (process.env.OPS_CHANNELS.split(',').includes(req.body.channel_name)) {
         type = 'ops'
     } else {
         type = 'help'
