@@ -50,7 +50,8 @@ https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils
 N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`
     },
     ops: (params) => {
-        return `Hello @${params.user_name}, si tu veux faire une demande d'ops (création d'app scalingo/sentry/matomo/domaine) tu peux utiliser le formulaire mentionné dans l'en-tête du canal.`
+        return `Hello @${params.user_name}, si tu veux faire une demande d'ops (création d'app scalingo/sentry/matomo/domaine) tu peux utiliser le formulaire suivant :
+${process.env.OPS_FORM_TEXT}`
     }
 }
 
