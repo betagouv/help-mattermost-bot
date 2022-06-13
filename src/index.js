@@ -67,7 +67,7 @@ app.post( "/", ( req, res ) => {
     let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
     const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     if (triggers.some(trigger => text.includes(trigger))) {
-        const text = buildText(req.body)
+        const text = buildText[type](req.body)
         res.json({
             text,
             response_type: 'comment',
