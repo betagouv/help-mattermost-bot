@@ -11,6 +11,7 @@ const TRIGGERS = {
     ops: [
         `nouvelle app sur scalingo`,
         `nouvelle app Scalingo`,
+        `créer un compte`,
         `un nom de domaine en beta.gouv`,
         `demande d'apps supplémentaire sur scalingo`,
         `nous aimerions un domaine en .beta.gouv.fr`,
