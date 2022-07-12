@@ -20,6 +20,7 @@ const TRIGGERS = {
     ],
     help: [
         `perdu mes accès à ma boite`,
+        `plus accès à ma boîte`,
         `n'arrive plus à accéder à son mail`,
         `n'arrive plus à accéder à son email`,
         'envoyer un lien de ré initialisation de mot de passe',
