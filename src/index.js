@@ -21,6 +21,7 @@ const TRIGGERS = {
     help: [
         `perdu mes accès à ma boite`,
         `plus accès à ma boîte`,
+        `plus accès à mes mails`,
         `mon adresse email a été bloquée`,
         `n'arrive plus à accéder à son mail`,
         `n'arrive plus à accéder à son email`,
