@@ -36,6 +36,7 @@ const TRIGGERS = {
         `mon mail beta n'existe plus`,
         `pas non plus à me connecter à roundcube`,
         `pas me connecter sur mon adresse beta`,
+        `mon adresse beta n'est pas  revenue`
         `je n'ai plus accès à ma bal beta gouv`,
         `mon email ne fonctionne plus`,
         `Soucis avec mon adresse`,
@@ -73,8 +74,8 @@ app.post( "/", ( req, res ) => {
     } else {
         type = 'help'
     }
-    let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
-    const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")).replace(' ','')
+    const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(' ','')
     if (triggers.some(trigger => text.includes(trigger))) {
         const text = buildText[type](req.body)
         res.json({
