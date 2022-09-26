@@ -34,6 +34,7 @@ const TRIGGERS = {
         `ne reçois plus mes mails`,
         `ne reçoit plus mes mails`,
         `mon mail beta n'existe plus`,
+        `pas accès à mon adresse mail`,
         `pas non plus à me connecter à roundcube`,
         `pas me connecter sur mon adresse beta`,
         `mon adresse beta n'est pas  revenue`
