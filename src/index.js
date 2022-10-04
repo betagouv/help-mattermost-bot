@@ -49,7 +49,9 @@ const TRIGGERS = {
         `n'a pas reçu le mail`,
         `perdu accès à sa boîte`,
         `perdu l'accès à ma boîte`,
-        `perdu ses accès`
+        `perdu ses accès`,
+        `organisation beta`,
+        `organisation github`
     ]
 }
 
