@@ -51,7 +51,9 @@ const TRIGGERS = {
         `perdu l'accès à ma boîte`,
         `perdu ses accès`,
         `organisation beta`,
-        `organisation github`
+        `organisation github`,
+        `semble avoir été supprimé`,
+        `semble avoir été désactivé`,
     ]
 }
 
