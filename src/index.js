@@ -39,6 +39,7 @@ const TRIGGERS = {
         `pas me connecter sur mon adresse beta`,
         `mon adresse beta n'est pas  revenue`
         `je n'ai plus accès à ma bal beta gouv`,
+        `a été supprimée`,
         `mon email ne fonctionne plus`,
         `Soucis avec mon adresse`,
         `n'arrive pas à se connecter à Mattermost`,
