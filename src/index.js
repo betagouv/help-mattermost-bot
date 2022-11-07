@@ -19,6 +19,7 @@ const TRIGGERS = {
         `nouvelle mailing list`
     ],
     help: [
+        `mail beta.gouv est arrivée à échéance`,
         `perdu mes accès à ma boite`,
         `plus accès à ma boîte`,
         `plus accès à mes mails`,
