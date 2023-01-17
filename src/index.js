@@ -81,7 +81,7 @@ app.post( "/", ( req, res ) => {
     } else {
         type = 'help'
     }
-    let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")).replace(' ','')
+    let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(' ',''))
     const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(' ','')
     if (triggers.some(trigger => text.includes(trigger))) {
         const text = buildText[type](req.body)
