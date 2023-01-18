@@ -62,7 +62,9 @@ const TRIGGERS = {
 
 const buildText = {
     help: (params) => {
-        return `Hello @${params.user_name}, tu sembles avoir un problème fréquent dont la réponse se trouve sans doute dans la doc :
+        return `Hello @${params.user_name}, 
+Si tu as une problème sur ton compte tu peux faire un diagnostic sur cette page : https://espace-membre.incubateur.net/que-ce-passe-t-il.
+Sinon tu as peut-être un problème fréquent dont la réponse se trouve sans doute dans la doc :
 https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/problemes-frequents
 N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`
     },
