@@ -21,6 +21,7 @@ const TRIGGERS = {
     help: [
         `mail beta.gouv est arrivée à échéance`,
         `perdu mes accès à ma boite`,
+        `ma fiche github a expiré`,
         `plus accès à ma boîte`,
         `plus accès à mes mails`,
         `mon adresse beta.gouv`,
