@@ -29,6 +29,7 @@ const TRIGGERS = {
         `n'arrive plus à accéder à son mail`,
         `n'arrive plus à accéder à son email`,
         `oublié mon mot de passe`,
+        `mon compte n'est pas actif`
         'envoyer un lien de ré initialisation de mot de passe',
         'ne parvient pas à accéder à son compte beta',
         'ne parvient pas à accéder à mon compte beta',
