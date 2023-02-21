@@ -16,7 +16,8 @@ const TRIGGERS = {
         `demande d'apps supplémentaire sur scalingo`,
         `nous aimerions un domaine en .beta.gouv.fr`,
         `créer la mailing list`,
-        `nouvelle mailing list`
+        `nouvelle mailing list`,
+        `@beta.gouv.fr`,
     ],
     help: [
         `mail beta.gouv est arrivée à échéance`,
