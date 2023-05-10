@@ -64,6 +64,7 @@ const TRIGGERS = {
         `organisation github`,
         `semble avoir été supprimé`,
         `semble avoir été désactivé`,
+        `oublier mon mot de passe`,
     ]
 }
 
