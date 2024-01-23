@@ -20,7 +20,7 @@ const TRIGGERS = {
         `@beta.gouv.fr`,
     ],
     peertube: [
-        `peertube`  
+        `peertube`// won't trigger anything for the time being
     ],
     help: [
         `mail beta.gouv est arrivée à échéance`,
