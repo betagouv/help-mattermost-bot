@@ -19,6 +19,9 @@ const TRIGGERS = {
         `nouvelle mailing list`,
         `@beta.gouv.fr`,
     ],
+    peertube: [
+        `peertube`  
+    ],
     help: [
         `mail beta.gouv est arrivée à échéance`,
         `perdu mes accès à ma boite`,
@@ -65,6 +68,8 @@ const TRIGGERS = {
         `semble avoir été supprimé`,
         `semble avoir été désactivé`,
         `oublier mon mot de passe`,
+        `plus l'accès à mon mail`,
+        `synchroniser mon mail`
     ]
 }
 
@@ -78,6 +83,9 @@ N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la 
     ops: (params) => {
         return `Hello @${params.user_name}, si tu veux faire une demande d'ops (création d'app scalingo/sentry/matomo/domaine/updown/dashlane/...) tu peux utiliser le formulaire suivant :
 ${process.env.OPS_FORM_TEXT}`
+    },
+    peertube: (params) => {
+        return `Hello @${params.user_name}! Oui il y a https://tube.numerique.gouv.fr hébergée par la DINUM et tu peux demander une création de compte pour une SE en écrivant depuis https://tube.numerique.gouv.fr/about/contact et en donnant une adresse mail générique pour ta SE + le nom des gens susceptibles de publier`
     }
 }
 
