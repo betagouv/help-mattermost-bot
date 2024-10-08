@@ -77,7 +77,7 @@ const buildText = {
     help: (params) => {
         return `Hello @${params.user_name}, 
 Tu as peut-être un problème fréquent dont la réponse se trouve sans doute dans la doc :
-https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/problemes-frequents
+https://doc.incubateur.net/communaute/les-outils-de-la-communaute/espace-membre/faq-espace-membre
 N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`
     },
     ops: (params) => {
