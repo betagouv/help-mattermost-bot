@@ -17,13 +17,10 @@ const TRIGGERS = {
         `nous aimerions un domaine en .beta.gouv.fr`,
         `créer la mailing list`,
         `nouvelle mailing list`,
-<<<<<<< HEAD
         `@beta.gouv.fr`,
     ],
     peertube: [
-        `peertube`// won't trigger anything for the time being
-=======
->>>>>>> b30b5ec (feat: add function to handle @admin tag or other type of response)
+        `peertube`, // won't trigger anything for the time being
     ],
     help: [
         `mail beta.gouv est arrivée à échéance`,
@@ -36,17 +33,11 @@ const TRIGGERS = {
         `n'arrive plus à accéder à son mail`,
         `n'arrive plus à accéder à son email`,
         `oublié mon mot de passe`,
-<<<<<<< HEAD
         `mon compte n'est pas actif`,
         `n'arrive plus à accéder à sa messagerie`,
-        'envoyer un lien de ré initialisation de mot de passe',
-        'ne parvient pas à accéder à son compte beta',
-        'ne parvient pas à accéder à mon compte beta',
-=======
         "envoyer un lien de ré initialisation de mot de passe",
         "ne parvient pas à accéder à son compte beta",
         "ne parvient pas à accéder à mon compte beta",
->>>>>>> b30b5ec (feat: add function to handle @admin tag or other type of response)
         `n'arrive plus à me connecter à ma boite roundcube`,
         `n'arrive plus à me connecter à sa boite roundcube`,
         `ne reçois plus mes mails`,
@@ -78,25 +69,25 @@ const TRIGGERS = {
         `semble avoir été désactivé`,
         `oublier mon mot de passe`,
         `plus l'accès à mon mail`,
-        `synchroniser mon mail`
-    ]
-}
+        `synchroniser mon mail`,
+    ],
+};
 
 const buildText = {
     help: (params) => {
         return `Hello @${params.user_name}, 
 Tu as peut-être un problème fréquent dont la réponse se trouve sans doute dans la doc :
 https://doc.incubateur.net/communaute/les-outils-de-la-communaute/espace-membre/faq-espace-membre
-N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`
+N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`;
     },
     ops: (params) => {
         return `Hello @${params.user_name}, si tu veux faire une demande d'ops (création d'app scalingo/sentry/matomo/domaine/updown/dashlane/...) tu peux utiliser le formulaire suivant :
-${process.env.OPS_FORM_TEXT}`
+${process.env.OPS_FORM_TEXT}`;
     },
     peertube: (params) => {
-        return `Hello @${params.user_name}! Oui il y a https://tube.numerique.gouv.fr hébergée par la DINUM et tu peux demander une création de compte pour une SE en écrivant depuis https://tube.numerique.gouv.fr/about/contact et en donnant une adresse mail générique pour ta SE + le nom des gens susceptibles de publier`
-    }
-}
+        return `Hello @${params.user_name}! Oui il y a https://tube.numerique.gouv.fr hébergée par la DINUM et tu peux demander une création de compte pour une SE en écrivant depuis https://tube.numerique.gouv.fr/about/contact et en donnant une adresse mail générique pour ta SE + le nom des gens susceptibles de publier`;
+    },
+};
 
 app.post("/", (req, res) => {
     if (!process.env.TOKEN.split(",").includes(req.body.token)) {
