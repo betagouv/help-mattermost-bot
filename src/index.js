@@ -1,11 +1,11 @@
-const express = require( "express" );
+const express = require("express");
 const app = express();
 const port = process.env.PORT; // default port to listen
-app.use(express.json())  
+app.use(express.json());
 // define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+app.get("/", (req, res) => {
+    res.send("Hello world!");
+});
 
 const TRIGGERS = {
     ops: [
@@ -17,10 +17,13 @@ const TRIGGERS = {
         `nous aimerions un domaine en .beta.gouv.fr`,
         `créer la mailing list`,
         `nouvelle mailing list`,
+<<<<<<< HEAD
         `@beta.gouv.fr`,
     ],
     peertube: [
         `peertube`// won't trigger anything for the time being
+=======
+>>>>>>> b30b5ec (feat: add function to handle @admin tag or other type of response)
     ],
     help: [
         `mail beta.gouv est arrivée à échéance`,
@@ -33,11 +36,17 @@ const TRIGGERS = {
         `n'arrive plus à accéder à son mail`,
         `n'arrive plus à accéder à son email`,
         `oublié mon mot de passe`,
+<<<<<<< HEAD
         `mon compte n'est pas actif`,
         `n'arrive plus à accéder à sa messagerie`,
         'envoyer un lien de ré initialisation de mot de passe',
         'ne parvient pas à accéder à son compte beta',
         'ne parvient pas à accéder à mon compte beta',
+=======
+        "envoyer un lien de ré initialisation de mot de passe",
+        "ne parvient pas à accéder à son compte beta",
+        "ne parvient pas à accéder à mon compte beta",
+>>>>>>> b30b5ec (feat: add function to handle @admin tag or other type of response)
         `n'arrive plus à me connecter à ma boite roundcube`,
         `n'arrive plus à me connecter à sa boite roundcube`,
         `ne reçois plus mes mails`,
@@ -89,29 +98,57 @@ ${process.env.OPS_FORM_TEXT}`
     }
 }
 
-app.post( "/", ( req, res ) => {
-    if (!process.env.TOKEN.split(',').includes(req.body.token)) { 
-        return
+app.post("/", (req, res) => {
+    if (!process.env.TOKEN.split(",").includes(req.body.token)) {
+        return;
     }
-    let type
-    if (process.env.OPS_CHANNELS.split(',').includes(req.body.channel_name)) {
-        type = 'ops'
+    let type;
+    if (process.env.OPS_CHANNELS.split(",").includes(req.body.channel_name)) {
+        type = "ops";
     } else {
-        type = 'help'
+        type = "help";
     }
-    let triggers = TRIGGERS[type].map(str => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(' ',''))
-    const text = req.body.text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replaceAll(' ','')
-    if (triggers.some(trigger => text.includes(trigger))) {
-        const text = buildText[type](req.body)
+    let triggers = TRIGGERS[type].map((str) =>
+        str
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(" ", "")
+    );
+    const text = req.body.text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(" ", "");
+    if (triggers.some((trigger) => text.includes(trigger))) {
+        const responseText = buildText[type](req.body);
         res.json({
-            text,
-            response_type: 'comment',
-        })
+            text: responseText,
+            response_type: "comment",
+        });
+    }
+});
+
+app.post("/:id", (req, res) => {
+    const { id } = req.params;
+
+    if (id === process.env.MATTERMOST_WEBHOOK_PING) {
+        return res.json({
+            text: `${process.env.MATTERMOST_TEAM_PING}`,
+            response_type: "comment",
+        });
+    }
+    if (id === process.env.MATTERMOST_WEBHOOK_PING_ANYWHERE_IN_CHANNEL) {
+        if (req.body.text.includes("@admin")) {
+            return res.json({
+                text: `${process.env.MATTERMOST_TEAM_PING}`,
+                response_type: "comment",
+            });
+        }
     }
 });
 
 // start the Express server
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
-} );
-
+app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`);
+});
