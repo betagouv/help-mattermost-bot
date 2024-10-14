@@ -130,7 +130,7 @@ app.post("/:id", (req, res) => {
         });
     }
     if (id === process.env.MATTERMOST_WEBHOOK_PING_ANYWHERE_IN_CHANNEL) {
-        if (req.body.text.includes("@admin")) {
+        if (req.body.text.includes("@team")) {
             return res.json({
                 text: `${process.env.MATTERMOST_TEAM_PING}`,
                 response_type: "comment",
