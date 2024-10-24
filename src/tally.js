@@ -1,6 +1,5 @@
-import axios from "axios";
-
-import { createHmac } from "crypto";
+const axios = require("axios");
+const { createHmac } = require("crypto");
 
 function generateMarkdown(jsonData) {
     let markdown = `**Form Response Summary:**\n\n`;
@@ -51,7 +50,7 @@ function generateMarkdown(jsonData) {
     return markdown;
 }
 
-export async function tallyHandler(req, res) {
+async function tallyHandler(req, res) {
     const webhookPayload = req.body;
     const receivedSignature = req.headers["tally-signature"];
 
@@ -75,3 +74,7 @@ export async function tallyHandler(req, res) {
         res.status(401).send("Invalid signature.");
     }
 }
+
+module.exports = {
+    tallyHandler,
+};
