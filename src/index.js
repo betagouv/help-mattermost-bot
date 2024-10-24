@@ -1,4 +1,5 @@
 const express = require("express");
+const { tallyHandler } = require("./tally");
 const app = express();
 const port = process.env.PORT; // default port to listen
 app.use(express.json());
