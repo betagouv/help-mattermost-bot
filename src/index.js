@@ -143,6 +143,8 @@ app.post("/:id", (req, res) => {
     }
 });
 
+app.post("/tally/:id", tallyHandler(req, res));
+
 // start the Express server
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
