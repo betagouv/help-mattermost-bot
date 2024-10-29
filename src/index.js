@@ -138,9 +138,6 @@ app.post("/:id", (req, res) => {
             });
         }
     }
-    if (id === process.env.TALLY_WEBHOOK_ID) {
-        tallyHandler(req, res);
-    }
 });
 
 app.post("/tally/:id", tallyHandler);
