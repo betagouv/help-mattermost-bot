@@ -120,6 +120,7 @@ app.post("/", (req, res) => {
         });
     }
 });
+app.post("/tally/:id", tallyHandler);
 
 app.post("/:id", (req, res) => {
     const { id } = req.params;
@@ -139,8 +140,6 @@ app.post("/:id", (req, res) => {
         }
     }
 });
-
-app.post("/tally/:id", tallyHandler);
 
 // start the Express server
 app.listen(port, () => {
