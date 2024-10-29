@@ -143,7 +143,7 @@ app.post("/:id", (req, res) => {
     }
 });
 
-app.post("/tally/:id", tallyHandler(req, res));
+app.post("/tally/:id", tallyHandler);
 
 // start the Express server
 app.listen(port, () => {
