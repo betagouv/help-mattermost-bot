@@ -15,24 +15,24 @@ function generateMarkdown(jsonData) {
                     .filter((option) => field.value.includes(option.id))
                     .map((option) => option.text)
                     .join(", ");
-                markdown += `- **${field.label}:**\n${options}\n`;
+                markdown += `**${field.label}:**\n${options}\n`;
             } else if (field.type === "FILE_UPLOAD") {
                 const files = field.value
                     .map((file) => `[${file.name}](${file.url})`)
                     .join(", ");
-                markdown += `- **${field.label}:**\n${files}\n`;
+                markdown += `**${field.label}:**\n${files}\n`;
             } else if (field.type === "RANKING") {
                 const rankingOptions = field.options
                     .filter((option) => field.value.includes(option.id))
                     .map((option) => option.text)
                     .join(" > ");
-                markdown += `- **${field.label}:**\n${rankingOptions}\n`;
+                markdown += `**${field.label}:**\n${rankingOptions}\n`;
             }
         } else {
             if (field.type === "PAYMENT") {
-                markdown += `- **${field.label}:**\n${field.value}\n`;
+                markdown += `**${field.label}:**\n${field.value}\n`;
             } else {
-                markdown += `- **${field.label}:**\n${field.value}\n`;
+                markdown += `**${field.label}:**\n${field.value}\n`;
             }
         }
     });
