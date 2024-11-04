@@ -88,7 +88,7 @@ const TRIGGERS = {
  *
  * @param {string} query
  */
-export const findMatch = (type, query) => {
+const findMatch = (type, query) => {
     const text = normalize(query);
     const triggers = TRIGGERS[type].map(normalize);
     const match = triggers.find((trigger) => text.includes(trigger));
@@ -162,3 +162,7 @@ app.post("/:idc", (req, res) => {
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
+
+module.exports = {
+  findMatch,
+};
