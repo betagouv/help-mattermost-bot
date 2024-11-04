@@ -121,7 +121,7 @@ app.post("/", (req, res) => {
     } else {
         type = "help";
     }
-
+    console.log(req.body.text)
     const match = findMatch(type, req.body.text);
     if (match) {
         const responseText = buildText[type](req.body);
