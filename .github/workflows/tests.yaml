@@ -6,8 +6,8 @@ on:
         branches:
             - "*"
 jobs:
-    release:
-        name: Release
+    tests:
+        name: Tests
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
