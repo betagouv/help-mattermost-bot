@@ -115,6 +115,13 @@ app.post("/", (req, res) => {
     if (!process.env.TOKEN.split(",").includes(req.body.token)) {
         return;
     }
+    if (process.env.BADGE_CHANNELS.split(",").includes(req.body.channel_name)) {
+        res.json({
+            text: `Hello, il y a un formulaire en en-tête où tu peux faire une demande d'accès aux bureaux ségur.`,
+            response_type: "comment",
+        });
+        return;
+    }
     let type;
     if (process.env.OPS_CHANNELS.split(",").includes(req.body.channel_name)) {
         type = "ops";
@@ -163,5 +170,5 @@ app.listen(port, () => {
 });
 
 module.exports = {
-  findMatch,
+    findMatch,
 };
