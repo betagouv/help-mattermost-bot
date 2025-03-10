@@ -82,6 +82,17 @@ const TRIGGERS = {
         `semble avoir été désactivé`,
         `oublier mon mot de passe`,
     ],
+    segur: [
+        `demande d'accès`,
+        `badge`,
+        `accès`
+    ],
+    reservation: [
+        `réservation`,
+        `salle disponible`,
+        `salle`,
+        `réunion`
+    ]
 };
 
 /**
@@ -116,11 +127,22 @@ app.post("/", (req, res) => {
         return;
     }
     if (process.env.BADGE_CHANNELS.split(",").includes(req.body.channel_name)) {
-        res.json({
-            text: `Hello, il y a un formulaire en en-tête où tu peux faire une demande d'accès aux bureaux ségur.`,
-            response_type: "comment",
-        });
-        return;
+        const matchBadge = findMatch('segur', req.body.text);
+        if (matchBadge) {
+            res.json({
+                text: `Hello, il y a un formulaire en en-tête où tu peux faire une demande d'accès aux bureaux ségur.`,
+                response_type: "comment",
+            });
+            return;
+        }
+        const matchReservation = findMatch('reservation', req.body.text);
+        if (matchReservation) {
+            res.json({
+                text: `Hello, il y a un pad en en tête de ce channel dans : "Autres informations" qui t'explique comment réserver une salle à ségur`,
+                response_type: "comment",
+            });
+            return;
+        }
     }
     let type;
     if (process.env.OPS_CHANNELS.split(",").includes(req.body.channel_name)) {
