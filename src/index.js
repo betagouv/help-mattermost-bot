@@ -108,10 +108,11 @@ const findMatch = (type, query) => {
 
 const buildText = {
     help: (params) => {
-        return `Hello @${params.user_name}, 
-Tu as peut-être un problème fréquent dont la réponse se trouve sans doute dans la doc :
-https://doc.incubateur.net/communaute/les-outils-de-la-communaute/espace-membre/faq-espace-membre
-N'hésites pas aussi a utiliser la barre de recherche de la doc pour trouver la bonne page.`;
+        return `:dizzy: Bonjour @${params.user_name} ! 
+Si ton message concerne un problème d’accès à un outil ou service de la communauté beta.gouv.fr (comme l'espace membre, ton mail beta.gouv.fr, brevo, tally, etc.), merci de poser ta question directement sur Crisp (notre support dédié).
+Cela nous permet de mieux vous accompagner et de suivre les demandes plus efficacement. 🙏
+[➡️ Je contacte le support](${process.env.CRISP_CHAT_URL})       
+Merci 😊`;
     },
     ops: (params) => {
         return `Hello @${params.user_name}, si tu veux faire une demande d'ops (création d'app scalingo/sentry/matomo/domaine/updown/...) tu peux utiliser le formulaire suivant :
