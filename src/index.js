@@ -111,7 +111,7 @@ const buildText = {
         return `:dizzy: Bonjour @${params.user_name} ! 
 Si ton message concerne un problème d’accès à un outil ou service de la communauté beta.gouv.fr (comme l'espace membre, ton mail beta.gouv.fr, brevo, tally, etc.), merci de poser ta question directement sur Crisp (notre support dédié).
 Cela nous permet de mieux vous accompagner et de suivre les demandes plus efficacement. 🙏
-[➡️ Je contacte le support](${process.env.CRISP_CHAT_URL})       
+[➡️ Je contacte le support](https://go.crisp.chat/chat/embed/?website_id=1020533a-61b1-45cd-90ab-8d6f99fb006a)       
 Merci 😊`;
     },
     ops: (params) => {
